@@ -6,7 +6,6 @@ from pydantic import BaseModel # adicionar en los imports en el main.py
 
 app = FastAPI()
 
-
 # @app.get("/")
 # def read_root():
 #     return {"Hello": "World"}
