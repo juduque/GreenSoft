@@ -6,5 +6,5 @@ client = TestClient(app)
 
 
 def test_index_route():
-    response = client.get('/items/HolaA')
+    response = client.get('/items/HolaC')
     assert response.status_code == 200
