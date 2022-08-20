@@ -1,6 +1,6 @@
 # GreenSoft
 
-- Autor
+- Astra group
 - Prerequisitos
 - Como ejecutar la app local
 - Como probarla local mente
