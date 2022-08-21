@@ -2,13 +2,21 @@ import requests
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel # adicionar en los imports en el main.py
+from log_config import init_loggers
+
+# Initiate logger messages 
+logger = init_loggers()
 
 
+# Initiate App
 app = FastAPI()
 
-# @app.get("/")
-# def read_root():
-#     return {"Hello": "World"}
+
+logger.debug('Debug message')
+logger.info('Info message')
+logger.warning('Warn message')
+logger.error('Error message')
+logger.critical('Critical message')
 
 
 @app.get("/items/{item_id}")
