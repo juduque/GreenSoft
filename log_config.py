@@ -22,3 +22,11 @@ def init_loggers():
     logger.addHandler(ch)
 
     return logger
+
+# logger = init_loggers()
+
+# logger.debug('Debug message')
+# logger.info('Info message')
+# logger.warning('Warn message')
+# logger.error('Error message')
+# logger.critical('Critical message')
