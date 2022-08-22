@@ -42,6 +42,7 @@ def get_info_users(encryptedToken: str, response: Response):
             logger.info('Info user get in role')
             response = data[0]
             return response
+        logger.info('Error finding users in role')
         response.status_code = status.HTTP_204_NO_CONTENT
     except:
         logger.error('Error finding users in role')

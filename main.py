@@ -17,9 +17,9 @@ url = 'https://62fd7b30b9e38585cd52637e.mockapi.io/udem/taller2/'
 
 
 # Start metrics
-process_request(random.random())
+# process_request(random.random())
 counter()
-latency()
+# latency()
 
 
 # from .auth_users import handler as auth

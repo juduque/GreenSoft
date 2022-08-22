@@ -44,10 +44,12 @@ def get_info_users(internalId: str, response: Response):
             logger.info('Info user get in auth')
             response = data[0]
             return response
-        response.status_code = status.HTTP_204_NO_CONTENT
+        logger.info('Error finding users in auth')
+        response.status_code = status.HTTP_204_NOT_FOUND
+        return { "message": "ERROR_FINDING_USER"}
     except:
         logger.error('Error finding users in auth')
-        response.status_code = status.HTTP_404_NOT_FOUND
+        response.status_code = status.HTTP_204_NO_CONTENT
         return { "message": "ERROR_FINDING_USER"}
 
 @router.post("", status_code=200)

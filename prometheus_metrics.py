@@ -13,9 +13,9 @@ def process_request(t):
 
 
 def counter():
-    c = prometheus_client.Counter('my_failures', 'Description of counter')
-    c.inc()     # Increment by 1
-    c.inc(1.6)  # Increment by given value
+    c = prometheus_client.Counter('my_requests_total', 'HTTP Failures', ['method', 'endpoint'])
+    c.labels('get', '/').inc(1)
+    c.labels('post', '/submit').inc(1)
 
 
 def latency():

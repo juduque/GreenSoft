@@ -45,9 +45,10 @@ def get_info_users(idUsuario: str, response: Response):
             logger.info('Info user get in info')
             response = data[0]
             return response
+        logger.info('Error finding users in info')
         response.status_code = status.HTTP_204_NO_CONTENT
     except:
-        logger.error('Error finding users in info')
+        logger.info('Error finding users in info')
         response.status_code = status.HTTP_404_NOT_FOUND
         return { "message": "ERROR_FINDING_USER"}
 
