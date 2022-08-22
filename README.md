@@ -3,7 +3,9 @@
 - Autores: Grupo Astra
 
 - Prerequisitos:
-    Python 3.10
+    git: https://git-scm.com/downloads
+    Cuenta GitHub: https://github.com/join
+    Python: https://www.python.org/downloads/
 
 - Como ejecutar la app local:
 
