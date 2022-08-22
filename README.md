@@ -19,7 +19,7 @@
 
     ### iniciar projecto en un ambiente de Windows 
     python3 -m venv .venv
-    source .venv\Scripts\activate.bat
+    source .venv/Scripts/activate
     pip install -r requirements.txt
 
 
