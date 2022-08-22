@@ -43,8 +43,8 @@ class Item(BaseModel):
     is_offer: Union[bool, None] = None
 
 
-# Start up the server to expose the metrics.
-start_http_server(3000)
-# Generate some requests.
-while True:
-    process_request(random.random())
+# # Start up the server to expose the metrics.
+# start_http_server(3000)
+# # Generate some requests.
+# while True:
+#     process_request(random.random())
