@@ -19,7 +19,7 @@ class IDataCreate(IData):
 
 def checkIsEmpty(data):
     valueData = list(data.values()) #list of values 
-    existData = any(elem is not None for elem in valueData) #exist info in info send by user
+    existData = any(elem is not None for elem in valueData) #exist info in auth send by user
     if not existData:
         return True
 
@@ -28,6 +28,7 @@ def get_total_users(response: Response):
     try:
         consult = requests.get(url + prefix, timeout=5)
         data = consult.json()
+        logger.info('Info total users in auth')
         return {"total": len(data)}
     except:
         logger.error('Error Count users in auth')
@@ -40,6 +41,7 @@ def get_info_users(internalId: str, response: Response):
         consult = requests.get(url + prefix + '/?internalId=' + internalId, timeout=5)
         data = consult.json()
         if len(data) == 1:
+            logger.info('Info user get in auth')
             response = data[0]
             return response
         response.status_code = status.HTTP_204_NO_CONTENT
@@ -53,7 +55,7 @@ def create_info_users(infoUser: IDataCreate, response: Response):
     data = infoUser.dict()
     isEmpty = checkIsEmpty(data)
     if (isEmpty):
-        logger.warning('Warn not data to create')
+        logger.warning('Warn not data to create in auth')
         response.status_code = status.HTTP_404_NOT_FOUND
         return { "message": "NOT_DATA_CREATE"}
     try:
@@ -91,14 +93,14 @@ def update_info_users(internalId: str, infoUser: IData, response: Response):
     isEmpty = checkIsEmpty(data)
     if (isEmpty):
         response.status_code = status.HTTP_404_NOT_FOUND
-        logger.warning('Warn data not exist to update')
+        logger.warning('Warn data not exist to update in auth')
         return { "message": "NOT_DATA_UPDATE"}
     try:
         consult = requests.put(url + prefix + '/' + internalId, data)
         if consult.status_code == 200:
             logger.info('Info user update in auth')
             return { "message": "USER_UPDATED"}
-        logger.warning('Warn user not exist to update')
+        logger.warning('Warn user not exist to update in auth')
         response.status_code = status.HTTP_404_NOT_FOUND
         return { "message": "USER_NOT_EXIST"}
     except:
