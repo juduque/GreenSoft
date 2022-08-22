@@ -42,7 +42,7 @@ jobs:
       uses: ravsamhq/notify-slack-action@v1
       with:
         status: ${{ job.status }}
-        notify_when: 'success,failure,cancelled'
+        notify_when: 'success,failure,cancelled,warnings'
       env:
         SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}
   publish:
